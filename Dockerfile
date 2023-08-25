@@ -5,7 +5,7 @@ ENV REVIEWDOG_VERSION=v0.14.2
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 RUN apk --no-cache add git
 
-RUN pip install "cython<3.0.0" && pip install --no-build-isolation pyyaml==6.0
+RUN pip install "pyyaml<=5.3.1" "yamllint"
 
 COPY entrypoint.sh /entrypoint.sh
 
